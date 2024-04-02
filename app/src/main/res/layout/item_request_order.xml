@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="app.table.calldisplay.ui.home.model.RequestOrder" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size_16"
+        android:layout_marginBottom="@dimen/size_2"
+        android:layout_marginTop="@dimen/size_10"
+        app:cardCornerRadius="@dimen/size_10">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_164">
+
+            <TextView
+                android:id="@+id/tvTable"
+                bindStateColorTable="@{data.countTotalService}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@{data.tableDisplay}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_50"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/rvService"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="50" />
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/rvService"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:paddingHorizontal="@dimen/size_24"
+                android:paddingVertical="@dimen/size_28"
+                app:alignContent="space_around"
+                app:alignItems="center"
+                app:flexDirection="row"
+                app:flexWrap="wrap"
+                app:justifyContent="space_around"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvTable"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    bindGoneIf="@{!data.hasOneService}"
+                    bindTableService="@{data.getServiceOrNullForDisplay(0)}"
+                    android:layout_width="@dimen/size_50"
+                    android:layout_height="@dimen/size_50"
+                    android:scaleType="centerInside"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/ic_dish" />
+
+                <ImageView
+                    bindGoneIf="@{!data.hasTowService}"
+                    bindTableService="@{data.getServiceOrNullForDisplay(1)}"
+                    android:layout_width="@dimen/size_50"
+                    android:layout_height="@dimen/size_50"
+                    android:scaleType="centerInside"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/ic_dish" />
+
+                <ImageView
+                    bindGoneIf="@{!data.hasThreeService}"
+                    bindTableService="@{data.getServiceOrNullForDisplay(2)}"
+                    android:layout_width="@dimen/size_50"
+                    android:layout_height="@dimen/size_50"
+                    android:scaleType="centerInside"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/ic_dish" />
+
+                <ImageView
+                    bindGoneIf="@{!data.hasThreeService}"
+                    bindTableService="@{data.getServiceOrNullForDisplay(3)}"
+                    android:layout_width="@dimen/size_50"
+                    android:layout_height="@dimen/size_50"
+                    android:scaleType="centerInside"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/ic_dish" />
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <TextView
+                android:id="@+id/tvCountService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_4"
+                android:layout_marginEnd="@dimen/size_8"
+                android:gravity="center"
+                android:text="@{data.countDisplay}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="4" />
+
+            <View
+                android:id="@+id/viewDivider"
+                android:layout_width="@dimen/size_1"
+                android:layout_height="0dp"
+                android:background="@color/mercury"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                bindGoneIf="@{!data.lowBattery}"
+                android:layout_width="@dimen/size_16"
+                android:layout_height="@dimen/size_22"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_low_battery" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

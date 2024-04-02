@@ -1,0 +1,154 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'jacoco'
+    id 'org.jetbrains.kotlin.plugin.serialization' version "1.7.10"
+    id 'kotlin-parcelize'
+    id 'de.mobilej.unmock'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id "org.sonarqube" version "3.4.0.2513"
+}
+
+apply from: 'jacoco.gradle'
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "GST.DN.S-App")
+        property("sonar.host.url", "https://sonar-dn.fsoft.com.vn")
+        property("sonar.login", "c7c285b16ce36368d22677dc768cf4bee8584166")
+    }
+}
+
+android {
+    compileSdk androidCompileSdkVersion
+
+    defaultConfig {
+        applicationId "app.table.calldisplay"
+        minSdk androidMinSdkVersion
+        targetSdk androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../keystores/SkylarCalldisplay.aab")
+            storePassword "abcd1234"
+            keyAlias "SkylarCalldisplaykey"
+            keyPassword "abcd1234"
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            testCoverageEnabled true
+        }
+
+        release {
+            debuggable false
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            signingConfig signingConfigs.release
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "Skylar-${variant.name}-${variant.versionName}.apk"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    testOptions {
+        /*execution 'ANDROIDX_TEST_ORCHESTRATOR'*/
+        animationsDisabled true
+
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
+}
+
+unMock {
+    keep "android.os.Bundle"
+    keep "android.net.Uri"
+    keepAndRename "java.nio.charset.Charsets" to "xjava.nio.charset.Charsets"
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.test.ext:junit-ktx:1.1.3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.2")
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+    implementation 'androidx.preference:preference:1.2.0'
+
+    // Android digital_gusto Module
+    implementation project(path: ':digital_gusto')
+
+    // android Architecture component
+    implementation architectureComponentDependencies.navigationFragment
+
+    // DI
+    implementation di.hilt
+    kapt(di.hiltKapt)
+
+    // Networking
+    implementation networkDependencies.retrofit
+    implementation networkDependencies.logging
+    implementation networkDependencies.retrofitGsonConverter
+
+    // Unit Test
+    testImplementation unittest.mockitoCore
+    testImplementation unittest.mockitoInline
+    testImplementation unittest.mockitoAndroid
+    unmock unittest.unmock
+    testImplementation unittest.kotlinxCoroutinesTest
+
+    // Firebase
+    implementation platform(firebase.BoM)
+    implementation flexbox
+
+    // https://github.com/michaelbull/kotlin-result to apply Module code of Client
+    implementation 'com.michael-bull.kotlin-result:kotlin-result:1.1.16'
+    implementation 'com.michael-bull.kotlin-result:kotlin-result-coroutines:1.1.16'
+
+    // Declare the dependency for the Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // Declare the dependencies for the Crashlytics and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+}
+
+kapt {
+    correctErrorTypes true
+}

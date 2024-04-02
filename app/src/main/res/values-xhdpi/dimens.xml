@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_10">10dp</dimen>
+    <dimen name="size_20">20dp</dimen>
+    <dimen name="size_24">24dp</dimen>
+    <dimen name="size_28">20dp</dimen>
+    <dimen name="size_34">34dp</dimen>
+    <dimen name="size_48">48dp</dimen>
+    <dimen name="size_52">52dp</dimen>
+    <dimen name="size_60">60dp</dimen>
+    <dimen name="size_64">64dp</dimen>
+    <dimen name="size_74">74dp</dimen>
+
+    <!--Text size-->
+    <dimen name="textSize_14">14sp</dimen>
+    <dimen name="textSize_16">16sp</dimen>
+    <dimen name="textSize_20">20sp</dimen>
+    <dimen name="size_306dp">306dp</dimen>
+    <dimen name="size_332">234dp</dimen>
+    <dimen name="size_230">130dp</dimen>
+
+    <dimen name="size_img_service">84dp</dimen>
+</resources>

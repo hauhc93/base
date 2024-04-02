@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<restrictions xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <restriction
+        android:key="shop_code"
+        android:restrictionType="string"
+        android:title="@string/restriction_shop_code_title" />
+
+    <restriction
+        android:key="identification_id"
+        android:restrictionType="string"
+        android:title="@string/restriction_identification_id_title" />
+
+</restrictions>

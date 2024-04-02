@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="app.table.calldisplay.ui.home.HomeViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mercury">
+
+        <include
+            android:id="@+id/layout_header"
+            layout="@layout/layout_header_home" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListNewRequest"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:paddingTop="6dp"
+            android:paddingBottom="@dimen/size_14"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/rvListSooOldRequest"
+            app:layout_constraintTop_toBottomOf="@id/layout_header"
+            tools:listitem="@layout/item_request_order" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListSooOldRequest"
+            bindGoneIf="@{data.isRequestOrderOldEmpty()}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/size_20"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="RtlSymmetry"
+            tools:listitem="@layout/item_request_order_old"
+            tools:visibility="visible" />
+
+        <TextView
+            bindGoneIf="@{!data.isRequestOrderEmpty()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/size_12"
+            android:gravity="center"
+            android:text="@string/textViewListRequestEmpty"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/textSize_20"
+            app:drawableTopCompat="@drawable/ic_request_empty"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            bindGoneIf="@{data.connection}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/rvListSooOldRequest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layout_header"
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:id="@+id/tvNoconnectionAbove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/size_12"
+                android:gravity="center"
+                android:text="@string/textViewNoInternetConnectionAbove"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/textSize_20"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/ic_no_internet"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvNoconnectionUnder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/buttonNoInternetConnectionUnder"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNoconnectionAbove" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

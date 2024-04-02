@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="app.table.calldisplay.ui.setting.SettingViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mercury">
+
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_48"
+            android:background="@color/main">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="@dimen/size_48"
+                android:layout_height="@dimen/size_48"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/size_8"
+                android:paddingHorizontal="9dp"
+                android:src="@drawable/ic_arrow_left"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/size_20"
+                android:layout_toEndOf="@id/imgBack"
+                android:text="@string/textViewSettingTitle"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewSound"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_64"
+            android:layout_below="@id/toolbar"
+            android:layout_marginHorizontal="@dimen/size_20"
+            android:layout_marginTop="@dimen/size_28"
+            android:elevation="@dimen/size_10"
+            app:cardCornerRadius="@dimen/size_8"
+            app:contentPaddingBottom="@dimen/size_8"
+            app:contentPaddingLeft="@dimen/size_20"
+            app:contentPaddingTop="@dimen/size_8">
+
+            <TextView
+                android:id="@+id/tvTitleSound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/textViewSoundSettingTitle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvContentSound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:includeFontPadding="false"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/textSize_14" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewRequest"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_64"
+            android:layout_below="@id/cardViewSound"
+            android:layout_marginHorizontal="@dimen/size_20"
+            android:layout_marginTop="@dimen/size_28"
+            android:elevation="@dimen/size_10"
+            app:cardCornerRadius="@dimen/size_8"
+            app:contentPaddingBottom="@dimen/size_8"
+            app:contentPaddingLeft="@dimen/size_20"
+            app:contentPaddingTop="@dimen/size_8">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/textViewRequestSettingsTitle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:includeFontPadding="false"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/textSize_14" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewTime"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_64"
+            android:layout_below="@id/cardViewRequest"
+            android:layout_marginHorizontal="@dimen/size_20"
+            android:layout_marginTop="@dimen/size_20"
+            android:elevation="@dimen/size_10"
+            app:cardCornerRadius="@dimen/size_8"
+            app:contentPaddingBottom="@dimen/size_8"
+            app:contentPaddingLeft="@dimen/size_20"
+            app:contentPaddingTop="@dimen/size_8">
+
+            <TextView
+                android:id="@+id/tvTitleTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/textViewTimeSettingsTitle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvContentTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:includeFontPadding="false"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/textSize_14" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewShopId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_64"
+            android:layout_below="@id/cardViewTime"
+            android:layout_marginHorizontal="@dimen/size_20"
+            android:layout_marginTop="@dimen/size_28"
+            android:elevation="@dimen/size_10"
+            app:cardCornerRadius="@dimen/size_8"
+            app:contentPaddingBottom="@dimen/size_8"
+            app:contentPaddingLeft="@dimen/size_20"
+            app:contentPaddingTop="@dimen/size_8">
+
+            <TextView
+                android:id="@+id/tvTitleShopId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:text="@string/textViewShopIdTitle"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvShopId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:includeFontPadding="false"
+                android:text="@{data.getShopId}"
+                android:textColor="@color/dark_gray"
+                android:textSize="@dimen/textSize_14" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>

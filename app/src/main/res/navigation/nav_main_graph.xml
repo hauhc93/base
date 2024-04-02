@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="app.table.calldisplay.ui.home.HomeFragment"
+        app:launchSingleTop="true"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/actionHomeFragmentToSettingFragment"
+            app:destination="@id/settingFragment"
+            app:launchSingleTop="true" />
+
+        <action
+            android:id="@+id/actionHomeFragmentToConfirmDeleteRequestDialog"
+            app:destination="@id/confirmDeleteDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/confirmDeleteDialog"
+        android:name="app.table.calldisplay.ui.home.deletedialog.ConfirmDeleteRequestDialog"
+        tools:layout="@layout/dialog_confirm_delete_request" />
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="app.table.calldisplay.ui.setting.SettingFragment"
+        tools:layout="@layout/fragment_setting">
+
+        <action
+            android:id="@+id/actionSettingFragmentToShopSettingDialog"
+            app:destination="@+id/settingShopIdDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/settingShopIdDialog"
+        android:name="app.table.calldisplay.ui.setting.dialog.shopsetting.ShopIdSettingDialogFragment"
+        tools:layout="@layout/fragment_dialog_shopid_setting" />
+
+</navigation>

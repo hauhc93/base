@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="app.table.calldisplay.ui.home.model.RequestOrder" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_338"
+        android:layout_marginHorizontal="@dimen/size_20"
+        android:layout_marginTop="@dimen/size_10"
+        android:layout_marginBottom="@dimen/size_10"
+        app:cardCornerRadius="@dimen/size_8">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvTable"
+                bindStateColorTable="@{data.countTotalService}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@{data.tableDisplay}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_116"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/rlImgService"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="50" />
+
+            <RelativeLayout
+                android:id="@+id/rlImgService"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvTable"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <include
+                    android:id="@+id/imgServiceFirstCall"
+                    layout="@layout/item_service"
+                    android:layout_width="@dimen/size_img_service"
+                    android:layout_height="@dimen/size_img_service"
+                    android:layout_centerInParent="true"
+                    app:data="@{data.firstServiceCall}" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvCountService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_8"
+                android:layout_marginEnd="@dimen/size_20"
+                android:gravity="center"
+                android:text="@{data.countDisplay}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSize_48"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="4" />
+
+            <View
+                android:id="@+id/viewDivider"
+                android:layout_width="@dimen/size_2"
+                android:layout_height="0dp"
+                android:background="@color/mercury"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                bindGoneIf="@{!data.lowBattery}"
+                android:layout_width="@dimen/size_42"
+                android:layout_height="@dimen/size_58"
+                android:layout_marginEnd="@dimen/size_14"
+                android:layout_marginBottom="@dimen/size_11"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_low_battery" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

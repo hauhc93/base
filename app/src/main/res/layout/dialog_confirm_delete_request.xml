@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_setting_dialog_radius_8"
+    android:paddingTop="@dimen/size_40"
+    android:paddingBottom="@dimen/size_12">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size_24"
+        android:text="@string/textViewDeleteRequestTitle"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvDes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_8"
+        android:text="@string/textViewDeleteRequestDes"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/textSize_14"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/size_1"
+        android:layout_marginTop="@dimen/size_34"
+        android:background="@color/mercury"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDes" />
+
+    <TextView
+        android:id="@+id/btnConfirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_12"
+        android:background="@drawable/bg_button_confirm_dialog"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/size_40"
+        android:paddingVertical="@dimen/size_8"
+        android:text="@string/textViewDeleteRequestOk"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@id/viewDivider" />
+
+    <TextView
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/size_12"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/size_10"
+        android:text="@string/textViewDeleteRequestCancel"
+        android:textColor="@color/main"
+        android:textSize="@dimen/textSize_18"
+        app:layout_constraintBottom_toBottomOf="@id/btnConfirm"
+        app:layout_constraintEnd_toStartOf="@id/btnConfirm"
+        app:layout_constraintTop_toTopOf="@id/btnConfirm" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Call Display</string>
+    <string name="textViewSettingTitle">設定</string>
+    <string name="textViewSoundSettingTitle">音声</string>
+    <string name="textViewRequestSettingsTitle">リクエストの最大表示件数</string>
+    <string name="textViewHeaderHome">リクエスト一覧</string>
+    <string name="textViewListRequestEmpty">現在、リクエストがありません。</string>
+    <string name="textViewDeleteRequestTitle">本リクエストを削込しても良いですか</string>
+    <string name="textViewDeleteRequestDes">もし削除すれば、元に戻すことができません。</string>
+    <string name="textViewDeleteRequestCancel">キャンセル</string>
+    <string name="textViewDeleteRequestOk">消込</string>
+    <string name="textViewTimeSettingsTitle">リクエストの待機時間</string>
+    <string name="textViewSettingDialogCancelButtonTitle">キャンセル</string>
+    <string name="textViewSettingDialogOkButtonTitle">はい</string>
+    <string name="textViewDisableAutoDelete">自動削除なし</string>
+    <string name="textViewRequestNumber">%s件</string>
+    <string name="textViewTimeNumber">%d分</string>
+    <string name="textViewShopIdTitle">店舗ID</string>
+    <string name="textViewNoInternetConnectionAbove">接続がありません</string>
+    <string name="buttonNoInternetConnectionUnder"> 接続をご確認し、もう一度お試しください。</string>
+    <string name="buttonNoInternetConnection">消込</string>
+    <string name="restriction_shop_code_title" translatable="false">Shop code</string>
+    <string name="restriction_identification_id_title" translatable="false">Identification id</string>
+</resources>
